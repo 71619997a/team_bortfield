@@ -19,9 +19,9 @@ for course in cr:
     entry.append(cinfo)
     courses.append(entry)
 
-print "courses\n" 
-print courses
-print "----------\n"
+# print "courses\n" 
+# print courses
+# print "----------\n"
 
 sr.next()
 documents = []
@@ -32,7 +32,7 @@ for student in sr:
     name = student[0]
     docdict["name"] = name
     docdict["age"] = age
-    docdict["id"] = id
+    #docdict["sid"] = id
     myCourses = filter(lambda course: id == course[0], courses)
     # the filter gets every course of the student
     classes = []
@@ -41,4 +41,8 @@ for student in sr:
     docdict["classes"] = classes
     documents.append(docdict)
 
-print documents
+result = collection.insert_many(documents)
+
+for doc in collection.find():
+    print(doc)
+    print "\n\n"
