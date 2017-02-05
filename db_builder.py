@@ -1,7 +1,7 @@
 from pymongo import MongoClient
 import csv
 
-server = MongoClient('127.0.0.1')  # '149.89.150.100')
+server = MongoClient('149.89.150.100')
 db = server.bortfielddb
 collection = db.students
 
