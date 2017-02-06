@@ -1,7 +1,7 @@
 from pymongo import MongoClient
 import csv
 
-server = MongoClient('149.89.150.100')
+server = MongoClient('127.0.0.1')  # '149.89.150.100')
 db = server.bortfielddb
 collection = db.students
 
@@ -23,12 +23,13 @@ sr.next()
 documents = []
 for student in sr:
     docdict = {};
-    id = int(student[2])
+    sid = int(student[2])
     age = int(student[1])
     name = student[0]
     docdict["name"] = name
     docdict["age"] = age
-    myCourses = filter(lambda course: id == course[0], courses)
+    docdict["sid"] = sid
+    myCourses = filter(lambda course: sid == course[0], courses)
     # the filter gets every course of the student
     classes = []
     for aclass in myCourses:
@@ -37,7 +38,3 @@ for student in sr:
     documents.append(docdict)
 
 result = collection.insert_many(documents)
-
-# for doc in collection.find():
-#     print(doc)
-#     print "\n\n"
