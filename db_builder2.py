@@ -17,7 +17,6 @@ for student in collection.find():
         gsum += int(a["mark"])
         counter += 1
     average = gsum / counter
-    #print student
     print(student["name"] + " -- " + str(student["sid"]) + " -- " + str(average))
 
 
