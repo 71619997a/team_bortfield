@@ -26,6 +26,7 @@ for student in sr:
     print student
     id = int(student[2])
     age = int(student[1])
-    name = int(student[0])
+    name = student[0]
     myCourses = filter(lambda course: id == course[0], courses)
     # the filter gets every course of the student
+    print myCourses
