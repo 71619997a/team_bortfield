@@ -12,7 +12,7 @@ print("_____________________________\n")
 for student in collection.find():
     classes = student["classes"]
     gsum = 0;
-    counter = 0;
+    counter = 0.;
     for a in classes:
         gsum += int(a["mark"])
         counter += 1
